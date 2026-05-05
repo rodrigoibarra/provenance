@@ -13,6 +13,13 @@ app.get("/", (c) => {
   return c.text("Hello Provenance!");
 });
 
+app.get("/error", (c) => {
+  c.status(422);
+  c.var.logger.info("Error log");
+  throw new Error("oh no!");
+  
+});
+
 app.notFound(notFound);
 app.onError(onError);
 

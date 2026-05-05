@@ -2,9 +2,10 @@ import { LogLayer } from "loglayer";
 import { PinoTransport } from "@loglayer/transport-pino";
 import { serializeError } from "serialize-error";
 import pino from "pino";
+import env from "@/env.js";
 
 const p = pino({
-  level: process.env.LOG_LEVEL ?? "info",
+  level: env.LOG_LEVEL ?? "info",
   transport: {
 	target: "pino-pretty",
 	options: {
@@ -16,4 +17,4 @@ const p = pino({
 export const logger = new LogLayer({
   errorSerializer: serializeError,
   transport: new PinoTransport({ logger: p }),
-});
+}); 
