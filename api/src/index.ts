@@ -11,7 +11,7 @@ import env from "./env.js";
 serve(
   {
     fetch: app.fetch,
-    port,
+    port, 
   },
   (info) => {
     console.log(`Server is running on http://localhost:${info.port}`);

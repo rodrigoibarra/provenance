@@ -1,26 +1,17 @@
-import { OpenAPIHono } from "@hono/zod-openapi";
-import { honoLogLayer, type HonoLogLayerVariables } from "@loglayer/hono";
-import { notFound, onError } from "stoker/middlewares";
-import { logger } from "@/lib/logger.js";
+import createApp from "@/lib/create-app.js";
+import configureOpenApi from "@/lib/configure-open-api.js";
+import index from "@/routes/coffees/index.routes.js"
 
-type AppVariables = { Variables: HonoLogLayerVariables };
+const app = createApp();
 
-const app = new OpenAPIHono<AppVariables>();
+const routes = [
+	index,
+];
 
-app.use(honoLogLayer({ instance: logger }));
+configureOpenApi(app);
+routes.forEach((route) => {
+	app.route("/", route);
+}) 
 
-app.get("/", (c) => {
-  return c.text("Hello Provenance!");
-});
-
-app.get("/error", (c) => {
-  c.status(422);
-  c.var.logger.info("Error log");
-  throw new Error("oh no!");
-  
-});
-
-app.notFound(notFound);
-app.onError(onError);
 
 export default app;
