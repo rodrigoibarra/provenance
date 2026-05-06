@@ -1,11 +1,14 @@
 import createApp from "@/lib/create-app.js";
 import configureOpenApi from "@/lib/configure-open-api.js";
-import index from "@/routes/coffees/index.routes.js"
+import index from "@/routes/index.routes.js"
+import coffees from "@/routes/coffees/coffees.index.js"
+
 
 const app = createApp();
 
 const routes = [
 	index,
+	coffees,
 ];
 
 configureOpenApi(app);

@@ -1,8 +1,9 @@
 import type { OpenAPIHono } from "@hono/zod-openapi";
 import type { HonoLogLayerVariables } from "@loglayer/hono";
-import { exec } from "node:child_process";
-import { type } from "node:os";
+import type { RouteConfig, RouteHandler } from "@hono/zod-openapi";
 
 export type AppVariables = { Variables: HonoLogLayerVariables };
 
 export type AppOpenApi = OpenAPIHono<AppVariables>;
+
+export type AppRouteHandler <R extends RouteConfig> = RouteHandler<R, AppVariables>
