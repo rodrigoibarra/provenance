@@ -6,9 +6,10 @@ import { console } from "node:inspector/promises";
 expand(config());
 
 const EnvSchema = z.object({
-	NODE_ENV: z.string().default("development"),
-	PORT: z.coerce.number().default(9999),
-	LOG_LEVEL: z.enum(["fatal" , "error" , "warn" , "info" , "debug" , "trace"]),
+  NODE_ENV: z.string().default("development"),
+  PORT: z.coerce.number().default(9999),
+  LOG_LEVEL: z.enum(["fatal", "error", "warn", "info", "debug", "trace"]).default("info"),
+  DATABASE_URL: z.string().default("./provenance.db"),
 });
 
 export type Env = z.infer<typeof EnvSchema>;
