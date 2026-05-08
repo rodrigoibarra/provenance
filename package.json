@@ -7,5 +7,15 @@
     "api",
     "client"
   ],
-  "author": "IronLapin"
+  "author": "IronLapin",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.3"
+  },
+  "lint-staged": {
+    "api/**/*.{ts,js}": "eslint --fix"
+  },
+  "scripts": {
+    "prepare": "husky"
+  }
 }
