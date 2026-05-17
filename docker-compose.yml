@@ -1,0 +1,22 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    ports:
+      - "9999:9999"
+    volumes:
+      - ./data:/app/api/data
+    env_file:
+      - ./api/.env
+    restart: unless-stopped
+ 
+  client:
+    build:
+      context: .
+      dockerfile: client/Dockerfile
+    ports:
+      - "8282:8282"
+    depends_on:
+      - api
+    restart: unless-stopped

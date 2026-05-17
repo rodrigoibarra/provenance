@@ -17,10 +17,7 @@
     "api/**/*.{ts,js}": "eslint --fix"
   },
   "scripts": {
-    "prepare": "husky"
-  },
-  "dependencies": {
-    "zod": "^4.4.3"
+    "prepare": "husky || true"
   },
   "optionalDependencies": {
     "@rollup/rollup-darwin-x64": "^4.60.3"
