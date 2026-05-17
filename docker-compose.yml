@@ -17,5 +17,5 @@ services:
       - "8282:8282"
     depends_on:
       - api
-    restart: unless-stopped
+    restart: "unless-stopped"
 
