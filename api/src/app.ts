@@ -1,12 +1,11 @@
-import createApp from "@/lib/create-app.js";
-import configureOpenApi from "@/lib/configure-open-api.js";
+import { cors } from "hono/cors";
 import { jwt } from "hono/jwt";
 import env from "@/env.js";
-import index from "@/routes/index.routes.js";
-import coffees from "@/routes/coffees/coffees.index.js";
+import configureOpenApi from "@/lib/configure-open-api.js";
+import createApp from "@/lib/create-app.js";
 import auth from "@/routes/auth/auth.index.js";
-import { cors } from "hono/cors";
-
+import coffees from "@/routes/coffees/coffees.index.js";
+import index from "@/routes/index.routes.js";
 
 const app = createApp();
 

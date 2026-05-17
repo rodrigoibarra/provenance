@@ -26,6 +26,10 @@ export const useCoffeesStore = defineStore("coffees", () => {
     return created;
   }
 
+  async function getOne(id: number) {
+    return api.coffees.getOne(id);
+  }
+
   async function updateCoffee(id: number, data: UpdateCoffeeBag) {
     const updated = await api.coffees.update(id, data);
     const index = coffees.value.findIndex(c => c.id === id);
@@ -38,5 +42,5 @@ export const useCoffeesStore = defineStore("coffees", () => {
     coffees.value = coffees.value.filter(c => c.id !== id);
   }
 
-  return { coffees, loading, error, fetchCoffees, createCoffee, updateCoffee, removeCoffee };
+  return { coffees, loading, error, fetchCoffees, createCoffee, updateCoffee, removeCoffee, getOne };
 });
