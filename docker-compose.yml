@@ -7,10 +7,8 @@ services:
       - "9999:9999"
     volumes:
       - ./data:/app/api/data
-    env_file:
-      - ./api/.env
-    restart: unless-stopped
- 
+  restart: unless-stopped
+
   client:
     build:
       context: .
@@ -20,3 +18,4 @@ services:
     depends_on:
       - api
     restart: unless-stopped
+
