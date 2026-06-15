@@ -8,7 +8,7 @@ export const CoffeeBagSchema = z.object({
   process: z.string().nullable(),
   farm: z.string().nullable(),
   producer: z.string().nullable(),
-  status: z.enum(["active", "finished"]).default("active"),
+  status: z.enum(["active", "finished"]),
   createdAt: z.number().int(),
   updatedAt: z.number().int(),
 });

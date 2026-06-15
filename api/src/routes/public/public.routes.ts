@@ -5,7 +5,7 @@ import { createMessageObjectSchema } from "stoker/openapi/schemas";
 import { CoffeeBagSchema } from "@provenance/schemas";
 
 export const list = createRoute({
-  path: "/",
+  path: "/coffees",
   method: "get",
   tags: ["Public"],
   responses: {
@@ -17,7 +17,7 @@ export const list = createRoute({
 });
 
 export const getOne = createRoute({
-  path: "/:id",
+  path: "/coffees/:id",
   method: "get",
   tags: ["Public"],
   request: {
